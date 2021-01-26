@@ -4,6 +4,6 @@ this repository stores **only** the images for Prism Linux. for any further info
 
 credentials for the live user are as follows:
 ```
-login: liveuser
+login: root
 password: prismlinux
 ```
