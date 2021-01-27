@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# this is the chroot setup script.
+# to resolve issues with DNS servers, copy /etc/resolv.conf from a preconfigured environment (eg. a live CD).
+# the $1 arguement is meant to be the Prism Linux root filesystem mountpoint/libexec environment (eg. a container).
+# an invalid path will result in a failure of the script.
+# the script must be invoked as root, due to permissions required by the mount/chroot commnands.
+
+mount -t devtmpfs none $1/dev
+mount -t proc none $1/proc
+mount -t sysfs none $1/sys
+mount -t tmpfs none $1/tmp
+mount -t efivarfs none $1/sys/firmware/efi/efivars
+chroot $1 /bin/login
