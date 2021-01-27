@@ -11,3 +11,7 @@ echo "installing the desired packages . . ."
 while [ ! -z "$1" ]; do
     for file in /var/db/prism/packages/$(uname -m)/$1-*.tgz
         tar xvzf $file -C /;
+    if [[ $# -gt 0 ]]; then
+        shift
+    fi
+done
