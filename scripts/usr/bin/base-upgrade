@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# NOTE: this script has to be run as root (or any other user that has read/write access to the rootfs).
+
+echo "fetching the latest packages, this may take a while . . .";
+
+exec base-update;
+
+echo "installing the packages, please wait . . .";
+
+for file in /var/db/prism/packages/$(uname -m)/*.tgz
+    tar xvzf $file -C /;

@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+# NOTE: this script has to be run as root (or any other user that has read/write access to the rootfs).	
+
+if [[ -f "/var/db/prism" ]]; then
+    git pull origin master;
+else
+    git clone https://github.com/wiktornowicki/prismlinux-images.git /var/db/prism;
+fi
